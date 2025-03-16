@@ -1,0 +1,170 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cooking chronicles</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="scripts/main.js"></script>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="top-bar">
+        <a href="#home" class="active">Home</a>
+        <a href="./recipes/recipe.html">Recipes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#cookingchronicles">Cooking Chronicles</a>
+    </div>
+    <img src="./img/logo.webp" width="150" height="150">  <picture>
+      <source media="(min-width: )" srcset=w">
+      <img src1x="2x" alt="">
+    </picture>  
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .recipe-container {
+            background: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 0;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            cursor: pointer;
+        }
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            background: #fafafa;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .chef-recommendations {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .chef-recommendations h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="recipes"></div>
+    
+    <div class="recommendations">
+        <div class="recommendation-item">Try our homemade sauces!</div>
+        <div class="recommendation-item">Check out our top-rated desserts!</div>
+        <div class="recommendation-item">Explore more international dishes!</div>
+    </div>
+    
+    <div class="chef-recommendations">
+        <h2>Chef's Recommendations</h2>
+        <p>Our chef highly recommends trying out the delicious Green Chile Stew, the flavorful Carne Adovada, and the sweet Tres Leches Cake!</p>
+    </div>
+    
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <h3>Instructions</h3>
+            <p id="modalInstructions"></p>
+            <p id="modalDescription"></p>
+            <h3>ingrediants</h3>
+            <p id="modalingrediants"></p>
+         
+        </div>
+
+    </div>
+    
+    <script>
+        const recipes = [
+            { name: "Green Chile Stew", description: "A spicy and hearty New Mexican stew.", instructions: "Brown pork, add green chile, potatoes, and simmer until tender." },
+            { name: "Carne Adovada", description: "Marinated pork slow-cooked in red chile sauce.", instructions: "Marinate pork in red chile overnight, then slow cook until tender." },
+            { name: "Tres Leches Cake", description: "A sponge cake soaked in three kinds of milk.", instructions: "Bake sponge cake, soak in milk mixture, and top with cream." }
+        ];
+
+        const recipesContainer = document.getElementById("recipes");
+        const modal = document.getElementById("recipeModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalInstructions = document.getElementById("modalInstructions");
+
+        function openModal(recipe) {
+            modalTitle.innerText = recipe.name;
+            modalDescription.innerText = recipe.description;
+            modalInstructions.innerText = recipe.instructions;
+            modal.style.display = "flex";
+        }
+        
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        recipes.forEach(recipe => {
+            const div = document.createElement("div");
+            div.classList.add("recipe-container");
+            div.innerHTML = `<h2>${recipe.name}</h2><p>${recipe.description}</p>`;
+            div.onclick = () => openModal(recipe);
+            recipesContainer.appendChild(div);
+        });

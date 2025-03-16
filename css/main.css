@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.top-bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.top-bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.top-bar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #0c2461;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.recipe-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recipe-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recipe-item h2 {
+  margin: 0;
+  font-size: 20px;
+  padding: 10px;
+  min-width: 200px;
+}
+
+.recipe-item p {
+  margin: 0;
+  padding: 10px;
+  color: #777;
+}
+
+.recipe-item a {
+  background: #0c2461;
+  color: #fff;
+  min-width: 150px;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.recipe-item a:hover {
+  background: #1e3799;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+  .recipe-item {
+    flex-direction: column;
+  }
+
+  .recipe-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .recipe-item h2 {
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+
+  .recipe-item p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .recipe-item a {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Reset some default styles */
+body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Add some space around the body */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Style the recipe list container */
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+/* Style each recipe item */
+.recipe-item {
+  width: 300px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Style the recipe image */
+.recipe-img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Style the recipe title */
+.recipe-title {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+/* Style the recipe description */
+.recipe-description {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px 10px;
+}
