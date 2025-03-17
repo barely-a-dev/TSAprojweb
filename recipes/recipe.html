@@ -1,33 +1,21 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-  <head> 
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>cooking chronicles</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="scripts/main.js"></script>
-  </head>
-  <body>
-    <h1></h1>
-    <div class="top-bar">
-        <a href="#home" class="active">Home</a>
-        <a href="./recipes/recipe.html">Recipes</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#cookingchronicles">Cooking Chronicles</a>
-    </div>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <!DOCTYPE html>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Recipes</title>
+</head>
 
-  <!DOCTYPE html>
-<html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Classic Recipes</title>
+<body>
+    <div class="top-bar">
+        <a href="../index.html">Home</a>
+        <a href="" class="active">Recipes</a>
+    </div>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,6 +23,7 @@
             text-align: center;
             padding: 20px;
         }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -43,6 +32,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
         .recipe-container {
             background: white;
             padding: 20px;
@@ -52,6 +42,7 @@
             text-align: left;
             cursor: pointer;
         }
+
         .recommendations {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -62,12 +53,14 @@
             background: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+
         .recommendation-item {
             padding: 10px;
             border: 1px solid #ddd;
             text-align: center;
             background: #fafafa;
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -76,10 +69,11 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background: white;
             padding: 20px;
@@ -87,22 +81,22 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
+
         .close {
             float: right;
             font-size: 24px;
             cursor: pointer;
         }
-      </style>
-</head>
-<body>
+    </style>
+
     <div class="container" id="recipes"></div>
-    
+
     <div class="recommendations">
         <div class="recommendation-item">Try our homemade sauces!</div>
         <div class="recommendation-item">Check out our top-rated desserts!</div>
         <div class="recommendation-item">Explore more international dishes!</div>
     </div>
-    
+
     <div id="recipeModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -112,15 +106,15 @@
             <ul id="modalInstructions"></ul>
             <h2 id="modalTitle"></h2>
             <p id="modalDescription"></p>
-            <h3>Ingredinets</h3>
-            <p id="modalingrediants"></p>
+            <h3>Ingredients</h3>
+            <p id="modalIngredients"></p>
 
         </div>
-        </div>
-        
-        <script>
-    const recipes = [
-                { name: "Green Chile Stew", description: "A spicy and hearty New Mexican stew.", instructions: "Brown pork, add green chile, potatoes, and simmer until tender." },
+    </div>
+
+    <script>
+        const recipes = [
+            { name: "Green Chile Stew", description: "A spicy and hearty New Mexican stew.", instructions: "Brown pork, add green chile, potatoes, and simmer until tender." },
             { name: "Carne Adovada", description: "Marinated pork slow-cooked in red chile sauce.", instructions: "Marinate pork in red chile overnight, then slow cook until tender." },
             { name: "Sopapillas", description: "Fried pastry served with honey or cinnamon sugar.", instructions: "Mix dough, roll out, fry until puffy, and drizzle with honey." },
             { name: "Blue Corn Enchiladas", description: "Enchiladas made with blue corn tortillas and red chile sauce.", instructions: "Layer blue corn tortillas with cheese, chile sauce, and bake." },
@@ -136,11 +130,11 @@
             { name: "New Mexico Style Pizza", description: "A pizza with green chile and local flavors.", instructions: "Top pizza dough with cheese, green chile, and bake." },
             { name: "Tres Leches Cake", description: "A sponge cake soaked in three kinds of milk.", instructions: "Bake sponge cake, soak in milk mixture, and top with cream." },
             { name: "Biscochitos", description: "New Mexico’s official state cookie with anise and cinnamon.", instructions: "Mix dough, cut shapes, bake, and coat with cinnamon sugar." },
-        { name: "Grilled Cheese Sandwich", description: "A classic sandwich with melted cheese between crispy toasted bread.", instructions: "Butter the bread, add cheese, and grill until golden brown." },
+            { name: "Grilled Cheese Sandwich", description: "A classic sandwich with melted cheese between crispy toasted bread.", instructions: "Butter the bread, add cheese, and grill until golden brown." },
             { name: "Pancakes", description: "Fluffy breakfast pancakes served with syrup and butter.", instructions: "Mix flour, eggs, milk, and sugar. Cook on a hot griddle until golden." },
             { name: "Caesar Salad", description: "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.", instructions: "Toss lettuce with dressing, add croutons and cheese." },
             { name: "Chicken Soup", description: "Warm and comforting soup with chicken, vegetables, and noodles.", instructions: "Simmer chicken, veggies, and noodles in broth for 30 minutes." },
-{ name: "Beef Tacos", description: "Seasoned ground beef served in crispy taco shells with toppings.", instructions: "Cook beef with seasoning, add to tacos, and top with cheese and salsa." },
+            { name: "Beef Tacos", description: "Seasoned ground beef served in crispy taco shells with toppings.", instructions: "Cook beef with seasoning, add to tacos, and top with cheese and salsa." },
             { name: "Chocolate Chip Cookies", description: "Chewy cookies loaded with chocolate chips.", instructions: "Mix ingredients, scoop onto tray, and bake at 350°F for 12 minutes." },
             { name: "Mac and Cheese", description: "Creamy macaroni and cheese baked to perfection.", instructions: "Boil pasta, make cheese sauce, mix together, and bake." },
             { name: "Mashed Potatoes", description: "Creamy mashed potatoes with butter and seasoning.", instructions: "Boil potatoes, mash with butter and milk, and season to taste." },
@@ -165,87 +159,88 @@
             { name: "Beef Stew", description: "Hearty stew with beef, potatoes, and carrots.", instructions: "Simmer beef with potatoes and carrots until tender." },
             { name: "Quiche", description: "Savory pie with eggs, cheese, and vegetables.", instructions: "Bake eggs, cheese, and vegetables in a pie crust." },
             { name: "Pad Thai", description: "Thai stir-fried noodles with shrimp and peanuts.", instructions: "Stir-fry noodles with shrimp, peanuts, and sauce." },
-    { name: "Gumbo", description: "Spicy stew with sausage, chicken, and seafood.", instructions: "Simmer sausage, chicken, and seafood with spices." },
-    { name: "Moussaka", description: "Greek casserole with eggplant, meat, and béchamel sauce.", instructions: "Layer eggplant, meat sauce, and béchamel, then bake." },
-    { name: "Falafel", description: "Crispy chickpea fritters served with tahini sauce.", instructions: "Fry chickpea mixture, serve with tahini sauce." },
-    { name: "Ratatouille", description: "French vegetable stew with tomatoes, zucchini, and eggplant.", instructions: "Simmer tomatoes, zucchini, and eggplant with herbs." },
-    { name: "Clam Chowder", description: "Creamy soup with clams, potatoes, and bacon.", instructions: "Simmer clams, potatoes, and bacon in a creamy broth." },
-    { name: "Paella", description: "Spanish rice dish with seafood, chicken, and saffron.", instructions: "Cook rice with seafood, chicken, and saffron." },
-      { name: "Chicken Tikka Masala", description: "Chicken in a creamy tomato curry sauce.", instructions: "Marinate chicken, cook in sauce, and serve with rice." },
-      { name: "Vegetable Lasagna", description: "Lasagna with layers of vegetables and cheese.", instructions: "Layer pasta, vegetables, and cheese, then bake." },
-      { name: "Beef Wellington", description: "Beef tenderloin wrapped in puff pastry.", instructions: "Wrap beef in pastry, bake until golden." },
-      { name: "Lamb Chops", description: "Grilled lamb chops with rosemary and garlic.", instructions: "Marinate lamb, grill until desired doneness." },
-      { name: "Ramen", description: "Japanese noodle soup with broth, meat, and vegetables.", instructions: "Cook noodles, add broth and toppings." },
-      { name: "Pho", description: "Vietnamese noodle soup with beef and herbs.", instructions: "Simmer broth, add noodles and beef." },
-      { name: "Gnocchi", description: "Italian potato dumplings served with sauce.", instructions: "Boil gnocchi, toss with sauce." },
-      { name: "Chicken Marsala", description: "Chicken cooked with mushrooms and Marsala wine.", instructions: "Sauté chicken, add mushrooms and wine." },
-      { name: "Beef Bourguignon", description: "French beef stew with red wine and vegetables.", instructions: "Simmer beef with wine and vegetables." },
-      { name: "Coq au Vin", description: "Chicken braised with wine, mushrooms, and bacon.", instructions: "Braise chicken with wine and ingredients." },
-      { name: "Shrimp and Grits", description: "Southern dish with shrimp and creamy grits.", instructions: "Cook shrimp, serve over grits." },
-      { name: "Chicken Pot Pie", description: "Pie filled with chicken and vegetables in a creamy sauce.", instructions: "Fill pie crust with mixture, bake until golden." },
-      { name: "Stuffed Cabbage Rolls", description: "Cabbage leaves stuffed with meat and rice.", instructions: "Stuff cabbage, bake in sauce." },
-      { name: "Beef Enchiladas", description: "Tortillas filled with beef and topped with sauce.", instructions: "Fill tortillas, top with sauce, and bake." },
-      { name: "Chicken Quesadillas", description: "Tortillas filled with chicken and cheese.", instructions: "Fill tortillas, cook until cheese melts." },
-      { name: "Lamb Curry", description: "Spicy lamb curry with tomatoes and spices.", instructions: "Cook lamb with spices and tomatoes." },
-      { name: "Vegetable Curry", description: "Mixed vegetables in a spicy curry sauce.", instructions: "Cook vegetables with curry sauce." },
-      { name: "Chicken Satay", description: "Grilled chicken skewers with peanut sauce.", instructions: "Grill chicken, serve with peanut sauce." },
-      { name: "Beef Kebabs", description: "Grilled beef skewers with vegetables.", instructions: "Skewer beef and vegetables, grill until done." },
-      { name: "Chicken Shawarma", description: "Middle Eastern spiced chicken served in pita.", instructions: "Marinate chicken, cook, and serve in pita." },
-      { name: "Falafel Wraps", description: "Falafel served in wraps with vegetables and sauce.", instructions: "Wrap falafel with vegetables and sauce." },
-      { name: "Beef Gyros", description: "Greek sandwich with beef, tzatziki, and vegetables.", instructions: "Fill pita with beef, tzatziki, and vegetables." },
-      { name: "Chicken Souvlaki", description: "Greek grilled chicken skewers.", instructions: "Marinate chicken, grill on skewers." },
-      { name: "Vegetable Stir Fry", description: "Mixed vegetables stir-fried with soy sauce.", instructions: "Stir-fry vegetables, add soy sauce." },
-      { name: "Chicken Fried Rice", description: "Fried rice with chicken and vegetables.", instructions: "Cook rice, stir-fry with chicken and vegetables." },
-      { name: "Beef and Broccoli", description: "Stir-fried beef with broccoli in a savory sauce.", instructions: "Stir-fry beef and broccoli, add sauce." },
-      { name: "Sweet and Sour Chicken", description: "Chicken in a sweet and tangy sauce.", instructions: "Cook chicken, add sweet and sour sauce." },
-      { name: "General Tso's Chicken", description: "Spicy and sweet fried chicken.", instructions: "Fry chicken, toss with sauce." },
-      { name: "Kung Pao Chicken", description: "Spicy stir-fried chicken with peanuts.", instructions: "Stir-fry chicken, add peanuts and sauce." },
-      { name: "Mongolian Beef", description: "Stir-fried beef with green onions in a savory sauce.", instructions: "Stir-fry beef, add green onions and sauce." },
-      { name: "Orange Chicken", description: "Fried chicken in a sweet orange sauce.", instructions: "Fry chicken, toss with orange sauce." },
-      { name: "Teriyaki Chicken", description: "Chicken glazed with teriyaki sauce.", instructions: "Cook chicken, glaze with teriyaki sauce." },
-      { name: "Sesame Chicken", description: "Fried chicken with a sweet sesame sauce.", instructions: "Fry chicken, toss with sesame sauce." },
-      { name: "Chicken Lo Mein", description: "Stir-fried noodles with chicken and vegetables.", instructions: "Cook noodles, stir-fry with chicken and vegetables." },
-      { name: "Beef Chow Mein", description: "Stir-fried noodles with beef and vegetables.", instructions: "Cook noodles, stir-fry with beef and vegetables." },
-      { name: "Vegetable Pad Thai", description: "Thai stir-fried noodles with vegetables.", instructions: "Stir-fry noodles with vegetables and sauce." },
-      { name: "Chicken Pho", description: "Vietnamese noodle soup with chicken.", instructions: "Simmer broth, add noodles and chicken." },
-      { name: "Beef Pho", description: "Vietnamese noodle soup with beef.", instructions: "Simmer broth, add noodles and beef." },
-      { name: "Vegetable Pho", description: "Vietnamese noodle soup with vegetables.", instructions: "Simmer broth, add noodles and vegetables." },
-      { name: "Chicken Biryani", description: "Spiced rice dish with chicken.", instructions: "Cook rice with chicken and spices." },
-      { name: "Lamb Biryani", description: "Spiced rice dish with lamb.", instructions: "Cook rice with lamb and spices." },
-      { name: "Vegetable Biryani", description: "Spiced rice dish with vegetables.", instructions: "Cook rice with vegetables and spices." },
-      { name: "Chicken Korma", description: "Creamy chicken curry with nuts and spices.", instructions: "Cook chicken with nuts and spices." },
-      { name: "Lamb Korma", description: "Creamy lamb curry with nuts and spices.", instructions: "Cook lamb with nuts and spices." },
-      { name: "Vegetable Korma", description: "Creamy vegetable curry with nuts and spices.", instructions: "Cook vegetables with nuts and spices." },
-      { name: "Chicken Vindaloo", description: "Spicy and tangy chicken curry.", instructions: "Cook chicken with spices and vinegar." },
-      { name: "Lamb Vindaloo", description: "Spicy and tangy lamb curry.", instructions: "Cook lamb with spices and vinegar." },
-      { name: "Vegetable Vindaloo", description: "Spicy and tangy vegetable curry.", instructions: "Cook vegetables with spices and vinegar." }
-          ];       
+            { name: "Gumbo", description: "Spicy stew with sausage, chicken, and seafood.", instructions: "Simmer sausage, chicken, and seafood with spices." },
+            { name: "Moussaka", description: "Greek casserole with eggplant, meat, and béchamel sauce.", instructions: "Layer eggplant, meat sauce, and béchamel, then bake." },
+            { name: "Falafel", description: "Crispy chickpea fritters served with tahini sauce.", instructions: "Fry chickpea mixture, serve with tahini sauce." },
+            { name: "Ratatouille", description: "French vegetable stew with tomatoes, zucchini, and eggplant.", instructions: "Simmer tomatoes, zucchini, and eggplant with herbs." },
+            { name: "Clam Chowder", description: "Creamy soup with clams, potatoes, and bacon.", instructions: "Simmer clams, potatoes, and bacon in a creamy broth." },
+            { name: "Paella", description: "Spanish rice dish with seafood, chicken, and saffron.", instructions: "Cook rice with seafood, chicken, and saffron." },
+            { name: "Chicken Tikka Masala", description: "Chicken in a creamy tomato curry sauce.", instructions: "Marinate chicken, cook in sauce, and serve with rice." },
+            { name: "Vegetable Lasagna", description: "Lasagna with layers of vegetables and cheese.", instructions: "Layer pasta, vegetables, and cheese, then bake." },
+            { name: "Beef Wellington", description: "Beef tenderloin wrapped in puff pastry.", instructions: "Wrap beef in pastry, bake until golden." },
+            { name: "Lamb Chops", description: "Grilled lamb chops with rosemary and garlic.", instructions: "Marinate lamb, grill until desired doneness." },
+            { name: "Ramen", description: "Japanese noodle soup with broth, meat, and vegetables.", instructions: "Cook noodles, add broth and toppings." },
+            { name: "Pho", description: "Vietnamese noodle soup with beef and herbs.", instructions: "Simmer broth, add noodles and beef." },
+            { name: "Gnocchi", description: "Italian potato dumplings served with sauce.", instructions: "Boil gnocchi, toss with sauce." },
+            { name: "Chicken Marsala", description: "Chicken cooked with mushrooms and Marsala wine.", instructions: "Sauté chicken, add mushrooms and wine." },
+            { name: "Beef Bourguignon", description: "French beef stew with red wine and vegetables.", instructions: "Simmer beef with wine and vegetables." },
+            { name: "Coq au Vin", description: "Chicken braised with wine, mushrooms, and bacon.", instructions: "Braise chicken with wine and ingredients." },
+            { name: "Shrimp and Grits", description: "Southern dish with shrimp and creamy grits.", instructions: "Cook shrimp, serve over grits." },
+            { name: "Chicken Pot Pie", description: "Pie filled with chicken and vegetables in a creamy sauce.", instructions: "Fill pie crust with mixture, bake until golden." },
+            { name: "Stuffed Cabbage Rolls", description: "Cabbage leaves stuffed with meat and rice.", instructions: "Stuff cabbage, bake in sauce." },
+            { name: "Beef Enchiladas", description: "Tortillas filled with beef and topped with sauce.", instructions: "Fill tortillas, top with sauce, and bake." },
+            { name: "Chicken Quesadillas", description: "Tortillas filled with chicken and cheese.", instructions: "Fill tortillas, cook until cheese melts." },
+            { name: "Lamb Curry", description: "Spicy lamb curry with tomatoes and spices.", instructions: "Cook lamb with spices and tomatoes." },
+            { name: "Vegetable Curry", description: "Mixed vegetables in a spicy curry sauce.", instructions: "Cook vegetables with curry sauce." },
+            { name: "Chicken Satay", description: "Grilled chicken skewers with peanut sauce.", instructions: "Grill chicken, serve with peanut sauce." },
+            { name: "Beef Kebabs", description: "Grilled beef skewers with vegetables.", instructions: "Skewer beef and vegetables, grill until done." },
+            { name: "Chicken Shawarma", description: "Middle Eastern spiced chicken served in pita.", instructions: "Marinate chicken, cook, and serve in pita." },
+            { name: "Falafel Wraps", description: "Falafel served in wraps with vegetables and sauce.", instructions: "Wrap falafel with vegetables and sauce." },
+            { name: "Beef Gyros", description: "Greek sandwich with beef, tzatziki, and vegetables.", instructions: "Fill pita with beef, tzatziki, and vegetables." },
+            { name: "Chicken Souvlaki", description: "Greek grilled chicken skewers.", instructions: "Marinate chicken, grill on skewers." },
+            { name: "Vegetable Stir Fry", description: "Mixed vegetables stir-fried with soy sauce.", instructions: "Stir-fry vegetables, add soy sauce." },
+            { name: "Chicken Fried Rice", description: "Fried rice with chicken and vegetables.", instructions: "Cook rice, stir-fry with chicken and vegetables." },
+            { name: "Beef and Broccoli", description: "Stir-fried beef with broccoli in a savory sauce.", instructions: "Stir-fry beef and broccoli, add sauce." },
+            { name: "Sweet and Sour Chicken", description: "Chicken in a sweet and tangy sauce.", instructions: "Cook chicken, add sweet and sour sauce." },
+            { name: "General Tso's Chicken", description: "Spicy and sweet fried chicken.", instructions: "Fry chicken, toss with sauce." },
+            { name: "Kung Pao Chicken", description: "Spicy stir-fried chicken with peanuts.", instructions: "Stir-fry chicken, add peanuts and sauce." },
+            { name: "Mongolian Beef", description: "Stir-fried beef with green onions in a savory sauce.", instructions: "Stir-fry beef, add green onions and sauce." },
+            { name: "Orange Chicken", description: "Fried chicken in a sweet orange sauce.", instructions: "Fry chicken, toss with orange sauce." },
+            { name: "Teriyaki Chicken", description: "Chicken glazed with teriyaki sauce.", instructions: "Cook chicken, glaze with teriyaki sauce." },
+            { name: "Sesame Chicken", description: "Fried chicken with a sweet sesame sauce.", instructions: "Fry chicken, toss with sesame sauce." },
+            { name: "Chicken Lo Mein", description: "Stir-fried noodles with chicken and vegetables.", instructions: "Cook noodles, stir-fry with chicken and vegetables." },
+            { name: "Beef Chow Mein", description: "Stir-fried noodles with beef and vegetables.", instructions: "Cook noodles, stir-fry with beef and vegetables." },
+            { name: "Vegetable Pad Thai", description: "Thai stir-fried noodles with vegetables.", instructions: "Stir-fry noodles with vegetables and sauce." },
+            { name: "Chicken Pho", description: "Vietnamese noodle soup with chicken.", instructions: "Simmer broth, add noodles and chicken." },
+            { name: "Beef Pho", description: "Vietnamese noodle soup with beef.", instructions: "Simmer broth, add noodles and beef." },
+            { name: "Vegetable Pho", description: "Vietnamese noodle soup with vegetables.", instructions: "Simmer broth, add noodles and vegetables." },
+            { name: "Chicken Biryani", description: "Spiced rice dish with chicken.", instructions: "Cook rice with chicken and spices." },
+            { name: "Lamb Biryani", description: "Spiced rice dish with lamb.", instructions: "Cook rice with lamb and spices." },
+            { name: "Vegetable Biryani", description: "Spiced rice dish with vegetables.", instructions: "Cook rice with vegetables and spices." },
+            { name: "Chicken Korma", description: "Creamy chicken curry with nuts and spices.", instructions: "Cook chicken with nuts and spices." },
+            { name: "Lamb Korma", description: "Creamy lamb curry with nuts and spices.", instructions: "Cook lamb with nuts and spices." },
+            { name: "Vegetable Korma", description: "Creamy vegetable curry with nuts and spices.", instructions: "Cook vegetables with nuts and spices." },
+            { name: "Chicken Vindaloo", description: "Spicy and tangy chicken curry.", instructions: "Cook chicken with spices and vinegar." },
+            { name: "Lamb Vindaloo", description: "Spicy and tangy lamb curry.", instructions: "Cook lamb with spices and vinegar." },
+            { name: "Vegetable Vindaloo", description: "Spicy and tangy vegetable curry.", instructions: "Cook vegetables with spices and vinegar." }
+        ];
 
-    const recipesContainer = document.getElementById("recipes");
-    const modal = document.getElementById("recipeModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalIngredients = document.getElementById("modalInstructions");
-    const modalInstructions = document.getElementById("modalInstructions");
+        const recipesContainer = document.getElementById("recipes");
+        const modal = document.getElementById("recipeModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalIngredients = document.getElementById("modalIngredients");
+        const modalInstructions = document.getElementById("modalInstructions");
 
-    function openModal(recipe) {
-        modalTitle.innerText = recipe.name;
-        modalDescription.innerText = recipe.description;
-        modalInstructions.innerText = recipe.instructions;
-        modal.style.display = "flex";
-    }
-    
-    function closeModal() {
-        modal.style.display = "none";
-    }
-    
-    recipes.forEach(recipe => {
-        const div = document.createElement("div");
-        div.classList.add("recipe-container");
-        div.innerHTML = `<h2>${recipe.name}</h2><p>${recipe.description}</p>`;
-        div.onclick = () => openModal(recipe);
-        recipesContainer.appendChild(div);
-    });
+        function openModal(recipe) {
+            modalTitle.innerText = recipe.name;
+            modalDescription.innerText = recipe.description;
+            modalInstructions.innerText = recipe.instructions;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        recipes.forEach(recipe => {
+            const div = document.createElement("div");
+            div.classList.add("recipe-container");
+            div.innerHTML = `<h2>${recipe.name}</h2><p>${recipe.description}</p>`;
+            div.onclick = () => openModal(recipe);
+            recipesContainer.appendChild(div);
+        });
     </script>
 </body>
+
 </html>
